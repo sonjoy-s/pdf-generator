@@ -1,0 +1,31 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.app {
+  display: flex;
+
+  .preview {
+    flex: 0 0 50%;
+    position: relative;
+
+    .template {
+      position: relative;
+
+      .layer {
+        &-text {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+
+          > * {
+            position: absolute;
+            white-space: pre;
+          }
+        }
+        &-elements {}
+      }
+    }
+  }
+  .editor {
+    flex: 0 0 50%;
+  }
+}

@@ -1,0 +1,32 @@
+<div class="app">
+  <div class="preview">
+    <div class="template">
+      <div class="layer-text">
+        <span [ngStyle]="template.address.style">{{template.address.value}}</span>
+        <span [ngStyle]="template.info.style">{{template.info.value}}</span>
+      </div>
+      <div id="html2Pdf" class="layer-elements">
+        <img src="assets/images/e259d8c8-8335-4ad9-b0d4-d97211e72433.png" class="img-fluid">
+      </div>
+    </div>
+  </div>
+  <div class="editor">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <form class="mt-4">
+            <div class="form-group">
+              <label>Address</label>
+              <input class="form-control" name="address" [(ngModel)]="template.address.value">
+            </div>
+            <div class="form-group">
+              <label>Info</label>
+              <textarea name="info" cols="30" rows="10" class="form-control" [(ngModel)]="template.info.value"></textarea>
+            </div>
+            <button (click)="generatePDF()" type="button" class="btn btn-primary">Generate PDF</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
