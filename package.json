@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve --open",
     "build": "ng build --prod",
-    "buildDemo": "ng build --prod --base-href=https://sonjoy-s.github.io/pdf-generator/dist",
+    "buildDemo": "ng build --prod --base-href=https://sonjoy-s.github.io/pdf-generator/dist/",
     "lint": "ng lint"
   },
   "private": true,
