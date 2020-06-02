@@ -2,31 +2,75 @@
   <div class="preview">
     <div class="template">
       <div class="layer-text">
-        <span [ngStyle]="template.address.style">{{template.address.value}}</span>
-        <span [ngStyle]="template.info.style">{{template.info.value}}</span>
+        <div id="inputAddress" [attr.data-len]="template.address.value.length" [ngStyle]="template.address.style">{{template.address.value}}</div>
+        <div id="footerNote" [ngStyle]="template.info.style" [innerHTML]="template.info.value"></div>
       </div>
       <div id="html2Pdf" class="layer-elements">
-        <img src="assets/images/e259d8c8-8335-4ad9-b0d4-d97211e72433.png" class="img-fluid">
+        <img [src]="template.background.path" class="img-fluid">
+        <img [src]="template.logo.path">
       </div>
     </div>
   </div>
   <div class="editor">
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-6">
           <form class="mt-4">
             <div class="form-group">
-              <label>Address</label>
+              <label class="font-weight-bold">Resizeable font size</label>
               <input class="form-control" name="address" [(ngModel)]="template.address.value">
             </div>
+            <!--
             <div class="form-group">
               <label>Info</label>
               <textarea name="info" cols="30" rows="10" class="form-control" [(ngModel)]="template.info.value"></textarea>
             </div>
+            -->
+            <div class="form-group">
+              <label class="font-weight-bold">Paragraph with bullet list</label>
+              <quill-editor name="info" [styles]="{height: '120px'}" [(ngModel)]="template.info.value">
+                <div quill-editor-toolbar>
+                  <span class="ql-formats">
+                    <button class="ql-bold" [title]="'Bold'"></button>
+                    <button class="ql-list" [title]="'List'" value="bullet"></button>
+                  </span>
+                </div>
+              </quill-editor>
+            </div>
             <button (click)="generatePDF()" type="button" class="btn btn-primary">Generate PDF</button>
           </form>
+        </div>
+        <div class="col-md-6 mt-4">
+          <div class="form-group">
+            <label class="font-weight-bold d-block">Logo Upload</label>
+            <app-image-uploader [(imagePath)]="template.logo.path"></app-image-uploader>
+          </div>
+          <div class="form-group">
+            <label class="font-weight-bold d-block">Background Upload</label>
+            <app-image-uploader [(imagePath)]="template.background.path"></app-image-uploader>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="modal fade " tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade d-none"></div>
 </div>

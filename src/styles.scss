@@ -1,4 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
 
 .app {
   display: flex;
@@ -21,7 +24,16 @@
             white-space: pre;
           }
         }
-        &-elements {}
+        &-elements {
+          img {
+            &:nth-child(2) {
+              position: absolute;
+              top: 60px;
+              left: 60px;
+              max-width: 150px;
+            }
+          }
+        }
       }
     }
   }
